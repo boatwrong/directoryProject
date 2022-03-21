@@ -11,7 +11,7 @@ void getBack()
     char c;
     printf("Enter any number to return to the main menu.\n");
     c = 1;
-    while(c < 48 || c > 57)
+    while(c < 32)
     {
         scanf("%c", &c);
     }
@@ -90,5 +90,6 @@ void clearList()
 {
     FILE *sourceList = fopen(filename, writeMode);
     fclose(sourceList);
+    getBack();
 }
 
