@@ -1,5 +1,5 @@
 *.o
 *.h.gch
 directory
-sourceList
+sourceList.txt
 
