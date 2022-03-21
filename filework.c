@@ -1,4 +1,5 @@
 #include"filework.h"
+#include<stdlib.h>
 
 const char *filename = "sourceList";
 const char *writeMode = "w";
@@ -70,6 +71,7 @@ void addName(char *first, char *last)
 
 void readList()
 {
+    system("clear");
     char c;
     FILE *sourceList = fopen(filename, readMode);
 
