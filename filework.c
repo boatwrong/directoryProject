@@ -1,7 +1,7 @@
 #include"filework.h"
 #include<stdlib.h>
 
-const char *filename = "sourceList";
+const char *filename = "sourceList.txt";
 const char *writeMode = "w";
 const char *addMode = "a";
 const char *readMode = "r";
