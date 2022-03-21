@@ -53,7 +53,7 @@ int addSource(char *sourceName)
     FILE *sourceList = fopen(filename, addMode);
     fputs(sourceName, sourceList);
     fclose(sourceList);
-    sort();
+    //sort();
     return 0;
 }
 
@@ -66,7 +66,7 @@ void addName(char *first, char *last)
     fputs("\n", sourceList);
     fclose(sourceList);
 
-    sort();
+    //sort();
 }
 
 void readList()
