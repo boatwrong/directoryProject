@@ -1,8 +1,8 @@
 #ifndef FILEWORK_H_INCLUDED
 #define FILEWORK_H_INCLUDED
 
-#include <stdio.h>
-
+void trim(char *str);
+int startup();
 int sort();
 int checkfile();
 int addSource(char *sourceName);

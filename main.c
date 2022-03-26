@@ -10,20 +10,6 @@
 
 #define MAX_NAME_SIZE 15
 
-// treim{{{
-void trim(char *str)
-{
-    for(int i=0; i < strlen(str); i++)
-    {
-        if(str[i] == '\n')
-        {
-            str[i] = '\0';
-            return;
-        }
-    }
-}
-// }}}
-
 // take name input {{{
 void takeName(char *name)
 {
@@ -88,13 +74,16 @@ int main()
     {
         return 1;
     }
-    int x = 1;
 
-    while(x != 0)
-    {
-        printMain();
-        x = menuQuerry();
-    }
-    return 0;
+    startup();
+
+//    int x = 1;
+//
+//    while(x != 0)
+//    {
+//        printMain();
+//       x = menuQuerry();
+//    }
+   return 0;
+
 }
-
