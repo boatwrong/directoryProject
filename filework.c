@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define MAX_NAME_SIZE 20
+#define LIST_START_SIZE 10
 
 const char *filename = "sourceList.txt";
 const char *writeMode = "w";
@@ -8,13 +10,14 @@ const char *addMode = "a";
 const char *readMode = "r";
 static int idCount = 1;
 
-typedef struct person {
+typedef struct {
     int id;
-    char lastName[50], firstName[50];
+//    char lastName[50], firstName[50];
+    char *lastName; // = malloc(MAX_NAME_SIZE * sizeof(char));
+    char *firstName; //  = malloc(MAX_NAME_SIZE * sizeof(char));
 } person;
 
-person list[10];
-
+// trim {{{
 void trim(char *str)
 {
     for(int i=0; i < strlen(str); i++)
@@ -26,20 +29,24 @@ void trim(char *str)
         }
     }
 }
+// }}}
 
-int startup() {
-    int idx = 0;
-    FILE *file = fopen(filename, readMode);
-    char *last = malloc(10 * sizeof(char));
-    char *first = malloc(10 * sizeof(char));
+void readPerson(FILE *file, person *list, int idx, int maxIndex)
+{
+    char *last = malloc(MAX_NAME_SIZE * sizeof(char));
+    char *first = malloc(MAX_NAME_SIZE * sizeof(char));
 
     //TODO make source file have more than ten names to test realloc!
-    while(idx < 9)
+    while(idx < maxIndex)
     {
         if(fscanf(file, "%s", last) ==  EOF)
         {
             break;
         }
+
+        list[idx].firstName = malloc(MAX_NAME_SIZE * sizeof(char));
+        list[idx].lastName = malloc(MAX_NAME_SIZE * sizeof(char));
+
         trim(last);
         fscanf(file, "%s", first);
         trim(first);
@@ -47,13 +54,28 @@ int startup() {
         strcat(list[idx].firstName, first);
         strcat(list[idx].lastName, last);
         list[idx].id = idCount;
+        printf("%d: %s %s\n", list[idx].id, list[idx].firstName, list[idx].lastName);
+        idCount++;
         idx++;
     }
-    //TODO realloc and think of logic to continue adding to array
-    // // maybe a recursive function with the above while loop...
 
+    list = realloc(list, 2 * maxIndex);
+
+    if(idx == maxIndex)
+    {
+        readPerson(file, list, idx, 2 * maxIndex);
+    }
+
+}
+
+void startup() {
+    person *list = calloc(LIST_START_SIZE, sizeof(*list));
+
+    int idx = 0;
+    FILE *file = fopen(filename, readMode);
+
+    readPerson(file, list, idx, LIST_START_SIZE);
     
-    return 0;
 }
 
 void getBack()

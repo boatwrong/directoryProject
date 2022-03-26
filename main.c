@@ -75,8 +75,26 @@ int main()
         return 1;
     }
 
-    startup();
+    //
+    // This creates array of people, need to combine functionality of this with
+    // lower operations
+    //
+    //
+    //
+    // startup();
 
+
+
+
+/********************************************************************************************/
+
+
+
+    
+    //
+    // this displays main menu and gives options to add to list
+    //
+    //
 //    int x = 1;
 //
 //    while(x != 0)
@@ -84,6 +102,7 @@ int main()
 //        printMain();
 //       x = menuQuerry();
 //    }
+
    return 0;
 
 }
