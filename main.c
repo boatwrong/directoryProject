@@ -75,13 +75,13 @@ int main()
         return 1;
     }
 
-    //
-    // This creates array of people, need to combine functionality of this with
-    // lower operations
-    //
-    //
-    //
-    // startup();
+   
+//    This creates array of people, need to combine functionality of this with
+ //   lower operations
+   
+   
+   
+    startup();
 
 
 
@@ -95,13 +95,13 @@ int main()
     // this displays main menu and gives options to add to list
     //
     //
-//    int x = 1;
-//
-//    while(x != 0)
-//    {
-//        printMain();
-//       x = menuQuerry();
-//    }
+    int x = 1;
+
+    while(x != 0)
+    {
+        printMain();
+       x = menuQuerry();
+    }
 
    return 0;
 

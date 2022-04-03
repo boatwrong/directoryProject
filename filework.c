@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include<stdlib.h>
+
 #define MAX_NAME_SIZE 20
 #define LIST_START_SIZE 10
 
@@ -134,19 +136,26 @@ void addName(char *first, char *last)
     //sort();
 }
 
-void readList()
+void readList(person[] list)
 {
     system("clear");
     char c;
-    FILE *sourceList = fopen(filename, readMode);
+    // FILE *sourceList = fopen(filename, readMode);
 
-    c = fgetc(sourceList);
-    while(c != EOF)
+   //  c = fgetc(sourceList);
+    // while(c != EOF)
+ //     {
+       // pri ntf("%c", c);
+        // c = fgetc(sourceList);
+    // }
+    // fclose(sourceList);
+    //
+
+    for(int i=0; i < sizeof(list); i++)
     {
-        printf("%c", c);
-        c = fgetc(sourceList);
+        printf("%s", list[i].name)
     }
-    fclose(sourceList);
+
     getBack();
 
 }
