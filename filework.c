@@ -14,7 +14,6 @@ static int idCount = 1;
 
 typedef struct {
     int id;
-//    char lastName[50], firstName[50];
     char *lastName; // = malloc(MAX_NAME_SIZE * sizeof(char));
     char *firstName; //  = malloc(MAX_NAME_SIZE * sizeof(char));
 } person;
@@ -32,6 +31,17 @@ void trim(char *str)
     }
 }
 // }}}
+
+void addPerson(FILE *file, person *list, int idx, int maxIndex)
+{
+    if(idx == maxIndex)
+    {
+        // TODO Keep working here! 
+        //
+        // add person to list
+    }
+
+}
 
 void readPerson(FILE *file, person *list, int idx, int maxIndex)
 {
