@@ -32,64 +32,6 @@ void trim(char *str)
 }
 // }}}
 
-void addPerson(FILE *file, person *list, int idx, int maxIndex)
-{
-    if(idx == maxIndex)
-    {
-        // TODO Keep working here! 
-        //
-        // add person to list
-    }
-
-}
-
-void readPerson(FILE *file, person *list, int idx, int maxIndex)
-{
-    char *last = malloc(MAX_NAME_SIZE * sizeof(char));
-    char *first = malloc(MAX_NAME_SIZE * sizeof(char));
-
-    //TODO make source file have more than ten names to test realloc!
-    while(idx < maxIndex)
-    {
-        if(fscanf(file, "%s", last) ==  EOF)
-        {
-            break;
-        }
-
-        list[idx].firstName = malloc(MAX_NAME_SIZE * sizeof(char));
-        list[idx].lastName = malloc(MAX_NAME_SIZE * sizeof(char));
-
-        trim(last);
-        fscanf(file, "%s", first);
-        trim(first);
-
-        strcat(list[idx].firstName, first);
-        strcat(list[idx].lastName, last);
-        list[idx].id = idCount;
-        printf("%d: %s %s\n", list[idx].id, list[idx].firstName, list[idx].lastName);
-        idCount++;
-        idx++;
-    }
-
-    list = realloc(list, 2 * maxIndex);
-
-    if(idx == maxIndex)
-    {
-        readPerson(file, list, idx, 2 * maxIndex);
-    }
-
-}
-
-void startup() {
-    person *list = calloc(LIST_START_SIZE, sizeof(*list));
-
-    int idx = 0;
-    FILE *file = fopen(filename, readMode);
-
-    readPerson(file, list, idx, LIST_START_SIZE);
-    
-}
-
 void getBack()
 {
     char c;
